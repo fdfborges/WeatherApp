@@ -1,0 +1,486 @@
+@import url(./variables.css);
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: var(--color-text);
+    font-family: var(--font-primary);
+}
+
+body {
+    background-color: var(--color-background);
+}
+
+header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 60px;
+    border-bottom: 1px solid var(--color-card);
+}
+
+header .logoContainer img {
+    margin-right: 15px;
+    height: 50px;
+}
+
+header span {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+header span strong {
+    color: var(--color-primary);
+}
+
+header .logoContainer {
+    display: flex;
+    align-items: center;
+}
+
+header .headLine {
+    display: flex;
+    align-items: center;
+}
+
+header .headLine span {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--color-purple-light);
+    margin-left: 10px;
+}
+
+.containerSvgHeader {
+    height: 28px;
+}
+
+svg .st0 {
+    stroke: var(--color-purple-light);
+}
+
+main {
+    padding: 40px 60px;
+}
+
+.inputContainerPrincipal {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    border-radius: 12px;
+    background-color: var(--color-background-objects);
+}
+
+.inputContainerPrincipal input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background-color: transparent;
+    outline: none;
+    color: var(--color-purple-light);
+    margin-left: 8px;
+}
+
+.inputContainerPrincipal input::placeholder {
+    color: var(--color-purple-placeholder);
+}
+
+.inputContainerPrincipal input:focus {
+    border: 1px solid var(--color-primary);
+    border-radius: 12px 0px 0px 12px;
+}
+
+.inputContainerPrincipal .containerIconSearch,
+.containerIconSearchButton {
+    width: 60px;
+    height: 100%;
+    display: flex;
+    padding: 13px;
+    align-items: center;
+    justify-content: center;
+}
+
+.containerIconSearchButton {
+    background-color: var(--color-primary);
+    border: none;
+    border-radius: 0px 12px 12px 0px;
+}
+
+.containerIconSearchButton:hover {
+    background-color: var(--color-purple-light);
+}
+
+.containerIconSearchButton:hover svg path {
+    fill: var(--color-primary);
+}
+
+.containerIconSearchButton:active {
+    background-color: var(--color-primary);
+}
+
+.containerIconSearchButton:active svg path {
+    fill: var(--color-purple-light);
+}
+
+.inputContainerPrincipal .containerIconSearch svg path,
+.containerIconSearchButton svg path {
+    fill: var(--color-purple-light);
+}
+
+.cardPrincipalContainerPrincipal {
+    margin-top: 30px;
+    height: 100%;
+    width: 100%;
+    border-radius: 12px;
+    background-color: var(--color-background-objects);
+    display: flex;
+    padding: 30px;
+}
+
+.cardPrincipalContainerLeft {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.cardPrincipalheader {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.cardPrincipalheader span {
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.cardPrincipalheader p {
+    color: var(--color-purple-light);
+    font-size: 17px;
+}
+
+.cardPrincipalMain {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.cardPrincipalMainLeft {
+    margin-right: 20px;
+}
+
+.iconCloudy {
+    width: 120px;
+    height: 120px;
+}
+
+.cardPrincipalMainRight {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.cardPrincipalMainRight span {
+    font-size: 70px;
+    font-weight: bold;
+}
+
+.cardPrincipalMainRight p {
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.cardPrincipalFooter {
+    width: 100%;
+    display: flex;
+    gap: 20px;
+}
+
+.cardPrincipalContainerRight {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    padding: 10px;
+    border-left: 2px solid var(--color-card);
+}
+
+.cardVariable,
+.cardVariableTwo {
+    display: flex;
+    align-items: center;
+}
+
+.cardVariable svg {
+    width: 28px;
+    margin-right: 10px;
+    fill: var(--color-primary);
+}
+
+.cardVariableTwo svg {
+    width: 28px;
+    margin-right: 10px;
+}
+
+.cardVariableTwo svg path {
+    stroke: var(--color-primary);
+}
+
+.cardVariable span {
+    font-size: 16px;
+}
+
+.containerCardVariablesRightPrincipal {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    height: 100%;
+}
+
+.containerCardVariablesLeft svg {
+    fill: var(--color-purple-light);
+    width: 40px;
+    height: 40px;
+}
+
+.containerCardVariablesRight {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.containerCardVariablesRight span {
+    color: var(--color-purple-light);
+    font-size: 14px;
+}
+
+.containerCardVariablesRight p {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.mainFooterContainerPrincipal {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.carouselCardsContainer {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.mainFooterContainerPrincipal .TitleCardCarousel {
+    font-size: 18px;
+    font-weight: 500;
+    padding: 20px 0px;
+}
+
+.mainFooterContainerCard {
+    width: 160px;
+    height: 160px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    background-color: var(--color-background-objects);
+    padding: 10px;
+    border-radius: 12px;
+}
+
+.mainFooterContainerCard span {
+    font-size: 14px;
+}
+
+.mainFooterContainerCard svg {
+    width: 50px;
+    height: 50px;
+}
+
+.mainFooterContainerCard svg path {
+    fill: var(--color-sun);
+}
+
+.mainFooterCardFooter {
+    display: flex;
+}
+
+.mainFooterCardFooter span,
+.mainFooterCardFooter p {
+    font-size: 18px;
+}
+
+.mainFooterCardFooter p {
+    color: var(--color-purple-light);
+}
+
+footer {
+    width: 100%;
+    display: flex;
+    padding: 30px 60px;
+}
+
+.footerContainerLeft,
+.footerContainerCenter,
+.footerContainerRight {
+    width: 100%;
+}
+
+.footerUp{
+    display: flex;
+    width: 100%;
+}
+
+.footerContainerLeft {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.footerContainerLeftUp {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.footerContainerLeft img {
+    width: 60px;
+}
+
+.footerContainerLeftContentRight {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.footerContainerLeftContentRight span {
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.footerContainerLeftContentRight span strong {
+    color: var(--color-purple-light);
+}
+
+.footerContainerLeftContentRight p {
+    font-size: 16px;
+}
+
+.footerContainerLeftDown span {
+    font-size: 16px;
+    color: var(--color-text-secondary);
+}
+
+.footerContainerCenter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.footerContainerCenter span {
+    font-size: 18px;
+    color: var(--color-purple-light);
+    width: 60%;
+}
+
+.footerContainerCenter a {
+    width: 60%;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    font-size: 16px;
+    gap: 10px;
+
+}
+
+.footerContainerCenter a:hover{
+    color: var(--color-text-secondary);
+}
+
+.footerContainerCenter a:active{
+    color: var(--color-text);
+}
+
+.footerContainerCenter svg {
+    width: 20px;
+    height: 100%;
+    fill: var(--color-purple-light);
+}
+
+.footerContainerRight{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.footerContainerRight span{
+    width: 60%;
+    background-color: red;
+    font-size: 18px;
+    color: var(--color-purple-light);
+}
+
+.footerContainerRightContainerButtons{
+    width: 60%;
+}
+
+.footerContainerRightContainerButtons a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    box-shadow: 0px 0px 0px 0.3px var(--color-purple-light);
+}
+
+.footerContainerRightContainerButtons a:hover{
+    box-shadow: 0px 0px 0px 0.3px var(--color-text-secondary);
+}
+
+.footerContainerRightContainerButtons a:active{
+    box-shadow: 0px 0px 0px 0.3px var(--color-purple-light);
+}
+
+.footerContainerRightContainerButtons{
+    display: flex;
+    gap: 10px;
+}
+
+.GithubIcon{
+    fill: transparent;
+    width: 60%;
+}
+
+.GitHubpath1 {
+    stroke: var(--color-purple-light);
+    stroke-width: 7%;
+}
+
+.GitHubpath2 {
+    stroke: var(--color-purple-light);
+    stroke-width: 7%;
+}
+
+.LinkedinIconSvg{
+    width: 50%;
+}
+
+.LinkedinPath1{
+    stroke: var(--color-purple-light);
+    stroke-width: 7%;
+}
+
+.footerContainerRight p{
+    font-size: 16px;
+    color: var(--color-text-secondary);
+    width: 60%;
+}
