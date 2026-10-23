@@ -4,6 +4,13 @@ let conditionTemp = document.getElementById("conditionTemp");
 let StateAndCountry = document.getElementById("StateAndCountry");
 let umidityHTML = document.getElementById("umidityHTML");
 let speedWind = document.getElementById("speedWind");
+let feels_like_temperature = document.getElementById("feels_like_temperature");
+let visibility = document.getElementById("visibility");
+let pressure = document.getElementById("pressure");
+let minTemp = document.getElementById("minTemp");
+let maxTemp = document.getElementById("maxTemp");
+let cloudiness = document.getElementById("cloudiness");
+let update = document.getElementById("update");
 let imgClima = document.getElementById("imgClima");
 let inptSearch = document.getElementById("inptSearch");
 const btnSearch = document.getElementById("btnSearch");
@@ -30,6 +37,24 @@ btnSearch.addEventListener('click', () => {
             let FormatCondition = conditionTempValue.charAt(0).toUpperCase() + conditionTempValue.slice(1);
             conditionTemp.innerHTML = FormatCondition;
             umidityHTML.innerHTML = `Umidade: ${data.main.humidity}%`
+            feels_like_temperature.innerHTML = data.main.feels_like;
+            visibility.innerHTML = `${data.visibility / 1000} km`;
+            pressure.innerHTML = `${data.main.pressure} hPa`;
+            minTemp.innerHTML = `${data.main.temp_min}°C`
+            maxTemp.innerHTML = `${data.main.temp_max}°C`
+            cloudiness.innerHTML = `${data.clouds.all}%`
+            let valueSecondsAPI = data.dt * 1000;
+
+            const date = new Date(valueSecondsAPI);
+
+            const day = date.getDate();
+            const month = date.getMonth() + 1;
+            const year = date.getFullYear();
+            const hours = date.getHours();
+            const minutes = String(date.getMinutes()).padStart(2, '0');
+            update.innerHTML = `${day} de ${month} de ${year} ás ${hours}:${minutes}.`
+            
+            
             
             const velocidadeVento = data.wind.speed *3.6;
             

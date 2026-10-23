@@ -73,100 +73,219 @@
             </button>
         </div>
         <div class="cardPrincipalContainerPrincipal">
-            <div class="cardPrincipalContainerLeft">
-                <div class="cardPrincipalheader">
-                    <span id="TitleCityHTML">São Paulo</span>
-                    <p id="StateAndCountry">SP, Brasil</p>
-                </div>
-                <div class="cardPrincipalMain">
-                    <div class="cardPrincipalMainLeft">
-                        <img id="imgClima" src="https://openweathermap.org/img/wn/04d@4x.png" alt="">
+            <div class="cardPrincipalContainerControllerDiv">
+                <div class="cardPrincipalContainerLeft">
+                    <div class="cardPrincipalheader">
+                        <span id="TitleCityHTML">São Paulo</span>
+                        <p id="StateAndCountry">SP, Brasil</p>
                     </div>
-                    <div class="cardPrincipalMainRight">
-                        <span id="temperatureHTML">22ºC</span>
-                        <p id="conditionTemp">Parcialmente nublado</p>
+                    <div class="cardPrincipalMain">
+                        <div class="cardPrincipalMainLeft">
+                            <img id="imgClima" src="https://openweathermap.org/img/wn/04d@4x.png" alt="">
+                        </div>
+                        <div class="cardPrincipalMainRight">
+                            <span id="temperatureHTML">22ºC</span>
+                            <p id="conditionTemp">Parcialmente nublado</p>
+                        </div>
                     </div>
-                </div>
-                <div class="cardPrincipalFooter">
-                    <div class="cardVariable">
-                        <svg fill="#000000" width="64px" height="64px" viewBox="0 0 32 32" id="icon"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                            <g id="SVGRepo_iconCarrier">
-                                <defs>
-                                    <style>
-                                        .cls-1 {
-                                            fill: none;
-                                        }
-                                    </style>
-                                </defs>
-                                <title>humidity</title>
-                                <path
-                                    d="M23.4761,13.9932,16.8472,3.4365a1.04,1.04,0,0,0-1.6944,0L8.4941,14.0444A9.9861,9.9861,0,0,0,7,19a9,9,0,0,0,18,0A10.0632,10.0632,0,0,0,23.4761,13.9932ZM16,26.0005a7.0089,7.0089,0,0,1-7-7,7.978,7.978,0,0,1,1.2183-3.9438l.935-1.4888L21.2271,23.6411A6.9772,6.9772,0,0,1,16,26.0005Z">
-                                </path>
-                                <rect id="_Transparent_Rectangle_" data-name="&lt;Transparent Rectangle&gt;"
-                                    class="cls-1" width="32" height="32"></rect>
-                            </g>
-                        </svg>
-                        <span id="umidityHTML">Umidade: 72%</span>
+                    <div class="cardPrincipalFooter">
+                        <div class="containerVariablesFooterUp">
+                            <div class="cardVariable">
+                                <svg fill="#000000" width="64px" height="64px" viewBox="0 0 32 32" id="icon"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                    <g id="SVGRepo_iconCarrier">
+                                        <defs>
+                                            <style>
+                                                .cls-1 {
+                                                    fill: none;
+                                                }
+                                            </style>
+                                        </defs>
+                                        <title>humidity</title>
+                                        <path
+                                            d="M23.4761,13.9932,16.8472,3.4365a1.04,1.04,0,0,0-1.6944,0L8.4941,14.0444A9.9861,9.9861,0,0,0,7,19a9,9,0,0,0,18,0A10.0632,10.0632,0,0,0,23.4761,13.9932ZM16,26.0005a7.0089,7.0089,0,0,1-7-7,7.978,7.978,0,0,1,1.2183-3.9438l.935-1.4888L21.2271,23.6411A6.9772,6.9772,0,0,1,16,26.0005Z">
+                                        </path>
+                                        <rect id="_Transparent_Rectangle_" data-name="&lt;Transparent Rectangle&gt;"
+                                            class="cls-1" width="32" height="32"></rect>
+                                    </g>
+                                </svg>
+                                <span id="umidityHTML">Umidade: 72%</span>
+                            </div>
+                            <div class="cardVariableTwo">
+                                <svg width="64px" height="64px" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                    <g id="SVGRepo_iconCarrier">
+                                        <path
+                                            d="M15.7639 7C16.3132 6.38625 17.1115 6 18 6C19.6569 6 21 7.34315 21 9C21 10.6569 19.6569 12 18 12H3M8.50926 4.66667C8.87548 4.2575 9.40767 4 10 4C11.1046 4 12 4.89543 12 6C12 7.10457 11.1046 8 10 8H3M11.5093 19.3333C11.8755 19.7425 12.4077 20 13 20C14.1046 20 15 19.1046 15 18C15 16.8954 14.1046 16 13 16H3"
+                                            stroke="#000000" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round">
+                                        </path>
+                                    </g>
+                                </svg>
+                                <span id="speedWind">Vento: 12 km/h</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="cardVariableTwo">
-                        <svg width="64px" height="64px" viewBox="0 0 24 24" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                            <g id="SVGRepo_iconCarrier">
-                                <path
-                                    d="M15.7639 7C16.3132 6.38625 17.1115 6 18 6C19.6569 6 21 7.34315 21 9C21 10.6569 19.6569 12 18 12H3M8.50926 4.66667C8.87548 4.2575 9.40767 4 10 4C11.1046 4 12 4.89543 12 6C12 7.10457 11.1046 8 10 8H3M11.5093 19.3333C11.8755 19.7425 12.4077 20 13 20C14.1046 20 15 19.1046 15 18C15 16.8954 14.1046 16 13 16H3"
-                                    stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                </path>
-                            </g>
-                        </svg>
-                        <span id="speedWind">Vento: 12 km/h</span>
-                    </div>
-                </div>
 
+                </div>
+                <div class="cardPrincipalContainerRight">
+                    <section class="cardPrincipalContainerRight_Left">
+                        <div class="containerPosition">
+                            <div class="containerCardVariablesRightPrincipal">
+                                <div class="containerCardVariablesLeft">
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
+                                        width="24px" fill="#1f1f1f">
+                                        <path
+                                            d="M338.5-138.5Q280-197 280-280q0-48 21-89.5t59-70.5v-320q0-50 35-85t85-35q50 0 85 35t35 85v320q38 29 59 70.5t21 89.5q0 83-58.5 141.5T480-80q-83 0-141.5-58.5ZM440-520h80v-40h-40v-40h40v-80h-40v-40h40v-40q0-17-11.5-28.5T480-800q-17 0-28.5 11.5T440-760v240Z" />
+                                    </svg>
+                                </div>
+                                <div class="containerCardVariablesRight">
+                                    <span>Sensação térmica</span>
+                                    <p id="feels_like_temperature">0.00</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="containerPosition">
+                            <div class="containerCardVariablesRightPrincipal">
+                                <div class="containerCardVariablesLeft">
+                                    <svg fill="#000000" height="64px" width="64px" version="1.1" id="Layer_1"
+                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                        viewBox="0 0 511.999 511.999" xml:space="preserve">
+                                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round">
+                                        </g>
+                                        <g id="SVGRepo_iconCarrier">
+                                            <g>
+                                                <g>
+                                                    <path
+                                                        d="M255.998,214.787c-22.724,0-41.212,18.488-41.212,41.212s18.488,41.212,41.212,41.212s41.212-18.488,41.212-41.212 S278.723,214.787,255.998,214.787z">
+                                                    </path>
+                                                </g>
+                                            </g>
+                                            <g>
+                                                <g>
+                                                    <path
+                                                        d="M507.836,244.912c-1.147-1.312-28.596-32.502-72.998-63.93c-59.487-42.105-121.329-64.362-178.84-64.362 c-57.51,0-119.352,22.256-178.839,64.362C32.758,212.41,5.308,243.6,4.162,244.912c-5.549,6.35-5.549,15.824,0,22.174 c1.147,1.312,28.596,32.502,72.998,63.931c59.487,42.105,121.329,64.362,178.839,64.362c57.511,0,119.353-22.256,178.84-64.362 c44.402-31.428,71.852-62.618,72.998-63.931C513.386,260.737,513.386,251.262,507.836,244.912z M255.997,350.365 c-52.032,0-94.365-42.332-94.365-94.366s42.332-94.366,94.365-94.366c52.036,0,94.367,42.332,94.367,94.366 S308.033,350.365,255.997,350.365z">
+                                                    </path>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                </div>
+                                <div class="containerCardVariablesRight">
+                                    <span>Visibilidade</span>
+                                    <p id="visibility">00 km</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="containerPosition">
+                            <div class="containerCardVariablesRightPrincipal">
+                                <div class="containerCardVariablesLeft">
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
+                                        width="24px" fill="#1f1f1f">
+                                        <path
+                                            d="M338.5-138.5Q280-197 280-280q0-48 21-89.5t59-70.5v-320q0-50 35-85t85-35q50 0 85 35t35 85v320q38 29 59 70.5t21 89.5q0 83-58.5 141.5T480-80q-83 0-141.5-58.5ZM440-520h80v-40h-40v-40h40v-80h-40v-40h40v-40q0-17-11.5-28.5T480-800q-17 0-28.5 11.5T440-760v240Z" />
+                                    </svg>
+                                </div>
+                                <div class="containerCardVariablesRight">
+                                    <span>Pressão atmosférica</span>
+                                    <p id="pressure">0000</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="cardPrincipalContainerRight_Right">
+                        <div class="containerPosition">
+                            <div class="containerCardVariablesRightPrincipal">
+                                <div class="containerCardVariablesLeft">
+                                    <svg class="iconTempMin" width="64px" height="64px" viewBox="0 0 24 24"
+                                        fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round">
+                                        </g>
+                                        <g id="SVGRepo_iconCarrier">
+                                            <path
+                                                d="M18 3V21M18 21L15 18M18 21L21 18M7 16C6.44772 16 6 16.4477 6 17C6 17.5523 6.44772 18 7 18C7.55228 18 8 17.5523 8 17C8 16.4477 7.55228 16 7 16ZM7 16V12M7 17L7.00707 17.0071M11 17C11 19.2091 9.20914 21 7 21C4.79086 21 3 19.2091 3 17C3 15.9856 3.37764 15.0593 4 14.3542L4 6.00017C4 4.34332 5.34315 3.00017 7 3.00017C8.65685 3.00017 10 4.34332 10 6.00017V14.3542C10.6224 15.0593 11 15.9856 11 17Z"
+                                                stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                stroke-linejoin="round"></path>
+                                        </g>
+                                    </svg>
+                                </div>
+                                <div class="containerCardVariablesRight">
+                                    <span>Temperatura minima</span>
+                                    <p id="minTemp">0°C</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="containerPosition">
+                            <div class="containerCardVariablesRightPrincipal">
+                                <div class="containerCardVariablesLeft">
+                                    <svg class="iconTempMax" width="64px" height="64px" viewBox="0 0 24 24" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round">
+                                        </g>
+                                        <g id="SVGRepo_iconCarrier">
+                                            <path
+                                                d="M18 3V21M18 3L15 6M18 3L21 6M7 15.9998C6.44772 15.9998 6 16.4475 6 16.9998C6 17.5521 6.44772 17.9998 7 17.9998C7.55228 17.9998 8 17.5521 8 16.9998C8 16.4475 7.55228 15.9998 7 15.9998ZM7 15.9998V11.9998M7 16.9998L7.00707 17.0069M11 16.9998C11 19.209 9.20914 20.9998 7 20.9998C4.79086 20.9998 3 19.209 3 16.9998C3 15.9854 3.37764 15.0591 4 14.354L4 6C4 4.34315 5.34315 3 7 3C8.65685 3 10 4.34315 10 6V14.354C10.6224 15.0591 11 15.9854 11 16.9998Z"
+                                                stroke="#000000" stroke-width="2" stroke-linecap="round"
+                                                stroke-linejoin="round"></path>
+                                        </g>
+                                    </svg>
+                                </div>
+                                <div class="containerCardVariablesRight">
+                                    <span>Temperatura máxima</span>
+                                    <p id="maxTemp">0°C</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="containerPosition">
+                            <div class="containerCardVariablesRightPrincipal">
+                                <div class="containerCardVariablesLeft">
+                                    <svg width="64px" height="64px" viewBox="0 0 24 24"
+                                        xmlns="http://www.w3.org/2000/svg" fill="#000000">
+                                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round">
+                                        </g>
+                                        <g id="SVGRepo_iconCarrier">
+                                            <g>
+                                                <path fill="none" d="M0 0h24v24H0z"></path>
+                                                <path
+                                                    d="M9.984 5.06a6.5 6.5 0 1 1 11.286 6.436A5.5 5.5 0 0 1 17.5 21L9 20.999a8 8 0 1 1 .984-15.94zm2.071.544a8.026 8.026 0 0 1 4.403 4.495 5.529 5.529 0 0 1 3.12.307 4.5 4.5 0 0 0-7.522-4.802z">
+                                                </path>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                </div>
+                                <div class="containerCardVariablesRight">
+                                    <span>Nebulosidade</span>
+                                    <p id="cloudiness">0%</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
             </div>
-            <div class="cardPrincipalContainerRight">
-                <div class="containerCardVariablesRightPrincipal">
-                    <div class="containerCardVariablesLeft">
-                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
-                            fill="#1f1f1f">
-                            <path
-                                d="M338.5-138.5Q280-197 280-280q0-48 21-89.5t59-70.5v-320q0-50 35-85t85-35q50 0 85 35t35 85v320q38 29 59 70.5t21 89.5q0 83-58.5 141.5T480-80q-83 0-141.5-58.5ZM440-520h80v-40h-40v-40h40v-80h-40v-40h40v-40q0-17-11.5-28.5T480-800q-17 0-28.5 11.5T440-760v240Z" />
-                        </svg>
-                    </div>
-                    <div class="containerCardVariablesRight">
-                        <span>Sensação térmica</span>
-                        <p>21°C</p>
-                    </div>
-                </div>
-                <div class="containerCardVariablesRightPrincipal">
-                    <div class="containerCardVariablesLeft">
-                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
-                            fill="#1f1f1f">
-                            <path
-                                d="m734-556-56-58 86-84 56 56-86 86ZM80-160v-80h800v80H80Zm360-520v-120h80v120h-80ZM226-558l-84-86 56-56 86 86-58 56Zm71 158h366q-23-54-72-87t-111-33q-62 0-111 33t-72 87Zm-97 80q0-117 81.5-198.5T480-600q117 0 198.5 81.5T760-320H200Zm280-80Z" />
-                        </svg>
-                    </div>
-                    <div class="containerCardVariablesRight">
-                        <span>Nascer do sol</span>
-                        <p>21°C</p>
-                    </div>
-                </div>
-                <div class="containerCardVariablesRightPrincipal">
-                    <div class="containerCardVariablesLeft">
-                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
-                            fill="#1f1f1f">
-                            <path
-                                d="M80-160v-80h800v80H80Zm217-240h366q-23-54-72-87t-111-33q-62 0-111 33t-72 87Zm-97 80q0-117 81.5-198.5T480-600q117 0 198.5 81.5T760-320H200Zm280-80Z" />
-                        </svg>
-                    </div>
-                    <div class="containerCardVariablesRight">
-                        <span>Pôr do sol</span>
-                        <p>21°C</p>
-                    </div>
+            <div class="containerUpdate">
+                <svg width="64px" height="64px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier">
+                        <path
+                            d="M15.94 7.61999L11.06 9.61999C10.7251 9.75225 10.421 9.95185 10.1664 10.2064C9.91185 10.461 9.71225 10.7651 9.57999 11.1L7.57999 15.98C7.54715 16.0636 7.54869 16.1567 7.58429 16.2392C7.61988 16.3216 7.68664 16.3866 7.76999 16.42C7.85065 16.4499 7.93934 16.4499 8.02 16.42L12.9 14.42C13.2348 14.2877 13.539 14.0881 13.7936 13.8336C14.0481 13.579 14.2477 13.2748 14.38 12.94L16.38 8.05999C16.4128 7.97643 16.4113 7.88326 16.3757 7.80082C16.3401 7.71839 16.2733 7.65338 16.19 7.61999C16.1093 7.59013 16.0207 7.59013 15.94 7.61999ZM12 13C11.8022 13 11.6089 12.9413 11.4444 12.8315C11.28 12.7216 11.1518 12.5654 11.0761 12.3827C11.0004 12.2 10.9806 11.9989 11.0192 11.8049C11.0578 11.6109 11.153 11.4327 11.2929 11.2929C11.4327 11.153 11.6109 11.0578 11.8049 11.0192C11.9989 10.9806 12.2 11.0004 12.3827 11.0761C12.5654 11.1518 12.7216 11.28 12.8315 11.4444C12.9413 11.6089 13 11.8022 13 12C13 12.2652 12.8946 12.5196 12.7071 12.7071C12.5196 12.8946 12.2652 13 12 13Z"
+                            fill="#000000"></path>
+                        <path
+                            d="M12 21C10.22 21 8.47991 20.4722 6.99987 19.4832C5.51983 18.4943 4.36628 17.0887 3.68509 15.4442C3.0039 13.7996 2.82567 11.99 3.17294 10.2442C3.5202 8.49836 4.37737 6.89472 5.63604 5.63604C6.89472 4.37737 8.49836 3.5202 10.2442 3.17294C11.99 2.82567 13.7996 3.0039 15.4442 3.68509C17.0887 4.36628 18.4943 5.51983 19.4832 6.99987C20.4722 8.47991 21 10.22 21 12C21 14.387 20.0518 16.6761 18.364 18.364C16.6761 20.0518 14.387 21 12 21ZM12 4.5C10.5166 4.5 9.0666 4.93987 7.83323 5.76398C6.59986 6.58809 5.63856 7.75943 5.07091 9.12988C4.50325 10.5003 4.35473 12.0083 4.64411 13.4632C4.9335 14.918 5.64781 16.2544 6.6967 17.3033C7.7456 18.3522 9.08197 19.0665 10.5368 19.3559C11.9917 19.6453 13.4997 19.4968 14.8701 18.9291C16.2406 18.3614 17.4119 17.4001 18.236 16.1668C19.0601 14.9334 19.5 13.4834 19.5 12C19.5 10.0109 18.7098 8.10323 17.3033 6.6967C15.8968 5.29018 13.9891 4.5 12 4.5Z"
+                            fill="#000000"></path>
+                    </g>
+                </svg>
+                <div class="textsUpdate">
+                    <span>Última atualização:</span>
+                    <p id="update"></p>
                 </div>
             </div>
         </div>
@@ -186,7 +305,7 @@
                     </div>
                 </div>
                 <div class="mainFooterContainerCard">
-                    <span>Seg</span>
+                    <span>Ter</span>
                     <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
                         <title>sunny</title>
                         <path fill="currentColor"
@@ -198,7 +317,7 @@
                     </div>
                 </div>
                 <div class="mainFooterContainerCard">
-                    <span>Seg</span>
+                    <span>Qua</span>
                     <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
                         <title>sunny</title>
                         <path fill="currentColor"
@@ -210,7 +329,7 @@
                     </div>
                 </div>
                 <div class="mainFooterContainerCard">
-                    <span>Seg</span>
+                    <span>Qui</span>
                     <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
                         <title>sunny</title>
                         <path fill="currentColor"
@@ -222,7 +341,7 @@
                     </div>
                 </div>
                 <div class="mainFooterContainerCard">
-                    <span>Seg</span>
+                    <span>Sex</span>
                     <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
                         <title>sunny</title>
                         <path fill="currentColor"
@@ -234,7 +353,7 @@
                     </div>
                 </div>
                 <div class="mainFooterContainerCard">
-                    <span>Seg</span>
+                    <span>Sab</span>
                     <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
                         <title>sunny</title>
                         <path fill="currentColor"
@@ -246,7 +365,7 @@
                     </div>
                 </div>
                 <div class="mainFooterContainerCard">
-                    <span>Seg</span>
+                    <span>Dom</span>
                     <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
                         <title>sunny</title>
                         <path fill="currentColor"
