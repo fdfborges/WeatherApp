@@ -11,10 +11,10 @@ let minTemp = document.getElementById("minTemp");
 let maxTemp = document.getElementById("maxTemp");
 let cloudiness = document.getElementById("cloudiness");
 let update = document.getElementById("update");
+let NextDaySpan = document.querySelectorAll(".NextDaySpan");
 let imgClima = document.getElementById("imgClima");
 let inptSearch = document.getElementById("inptSearch");
 const btnSearch = document.getElementById("btnSearch");
-
 const apiKey = 'f83680206b3f8cd3105b8b9b4daaedbd'
 
 let cidade = '';
@@ -24,6 +24,8 @@ btnSearch.addEventListener('click', () => {
     console.log(inptSearch.value)
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${cidade}&appid=${apiKey}&units=metric&lang=pt_br`
     const urlGeo = `https://api.openweathermap.org/geo/1.0/direct?q=${cidade},BR&limit=1&appid=${apiKey}`
+
+
 
     fetch(url)
         .then(response => response.json())
@@ -48,16 +50,16 @@ btnSearch.addEventListener('click', () => {
             const date = new Date(valueSecondsAPI);
 
             const day = date.getDate();
-            const month = date.getMonth() + 1;
+            const month = date.toLocaleString('pt-BR', { month: 'long' });
             const year = date.getFullYear();
             const hours = date.getHours();
             const minutes = String(date.getMinutes()).padStart(2, '0');
             update.innerHTML = `${day} de ${month} de ${year} ás ${hours}:${minutes}.`
-            
-            
-            
-            const velocidadeVento = data.wind.speed *3.6;
-            
+
+
+
+            const velocidadeVento = data.wind.speed * 3.6;
+
             speedWind.innerHTML = `Vento: ${velocidadeVento.toFixed(1)} km/h`
 
             const icone = data.weather[0].icon;
@@ -84,8 +86,26 @@ btnSearch.addEventListener('click', () => {
 
             StateAndCountry.innerHTML = `${data[0].state}, ${pais}`;
             console.log(data)
+
+
         })
         .catch(error => console.error('Erro:', error));
 
 })
 
+
+
+const today = new Date();
+
+for (let i = 0; i <= 5; i++) {
+    const nextDay = new Date(today);
+    nextDay.setDate(today.getDate() + i);
+
+    const nextDayName = nextDay.toLocaleString('pt-BR', {
+        weekday: 'long'
+    });
+    NextDaySpan[i].innerHTML = nextDayName;
+
+    console.log(nextDayName)
+
+}
