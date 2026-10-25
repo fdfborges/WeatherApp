@@ -19,71 +19,61 @@ const apiKey = 'f83680206b3f8cd3105b8b9b4daaedbd'
 
 let cidade = '';
 
-navigator.geolocation.getCurrentPosition(
-    (posicao) => {
-        const geoPositionLatitude = posicao.coords.latitude;
-        const geoPositionLongitude = posicao.coords.longitude;
 
-        console.log(`LAT: ${geoPositionLatitude}, LONG: ${geoPositionLongitude}`);
+const GeoLocationValueLocalStorage = localStorage.getItem("GeoLocalizacao");
 
-        localStorage.setItem(
-            "GeoLocalizacao",
-            JSON.stringify({ geoPositionLatitude, geoPositionLongitude })
-        );
-    },
-    (erro) => {
-        console.error("Erro ao obter localização:", erro.message);
-    }
-)
+if (GeoLocationValueLocalStorage === null) {
+    console.log("CHAVE NÂO EXISTE")
+    navigator.geolocation.getCurrentPosition(
+        (posicao) => {
+            const geoPositionLatitude = posicao.coords.latitude;
+            const geoPositionLongitude = posicao.coords.longitude;
 
-btnSearch.addEventListener('click', (geoPositionLatitude, geoPositionLongitude) => {
+            console.log(`LAT: ${geoPositionLatitude}, LONG: ${geoPositionLongitude}`);
+
+            localStorage.setItem(
+                "GeoLocalizacao",
+                JSON.stringify({ geoPositionLatitude, geoPositionLongitude })
+            );
+        },
+        (erro) => {
+            console.error("Erro ao obter localização:", erro.message);
+        }
+    )
+} else {
+    console.log("CHAVE PREENCHIDA", GeoLocationValueLocalStorage)
+
+    const coordenadasColetadas = JSON.parse(GeoLocationValueLocalStorage);
+    console.log(coordenadasColetadas.geoPositionLatitude)
+    console.log(coordenadasColetadas.geoPositionLongitude)
+
+    const urlWithDataColeted = `https://api.openweathermap.org/data/2.5/weather?lat=${coordenadasColetadas.geoPositionLatitude}&lon=${coordenadasColetadas.geoPositionLongitude}&appid=${apiKey}&units=metric&lang=pt_br`;
+
+    fetch(urlWithDataColeted)
+        .then(response => response.json())
+        .then(data => {
+            updateInfoScreen(data);
+
+
+        })
+        .catch(error => console.error('Erro:', error));
+}
+
+
+
+btnSearch.addEventListener('click', () => {
     const cidade = inptSearch.value;
     console.log(inptSearch.value)
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${cidade}&appid=${apiKey}&units=metric&lang=pt_br`
     const urlGeo = `https://api.openweathermap.org/geo/1.0/direct?q=${cidade},BR&limit=1&appid=${apiKey}`
 
-    console.log(`TEST ${geoPositionLatitude}, ${geoPositionLongitude}`)
+
 
     fetch(url)
         .then(response => response.json())
         .then(data => {
-            console.log(`Temperatura em ${data.name}: ${data.main.temp}°C`);
-            console.log(`Condição: ${data.weather[0].description}`);
-            TitleCityHTML.innerHTML = data.name;
-            temperatureHTML.innerHTML = `${data.main.temp}°C`;
+            updateInfoScreen(data);
 
-            let conditionTempValue = `${data.weather[0].description}`
-            let FormatCondition = conditionTempValue.charAt(0).toUpperCase() + conditionTempValue.slice(1);
-            conditionTemp.innerHTML = FormatCondition;
-            umidityHTML.innerHTML = `Umidade: ${data.main.humidity}%`
-            feels_like_temperature.innerHTML = data.main.feels_like;
-            visibility.innerHTML = `${data.visibility / 1000} km`;
-            pressure.innerHTML = `${data.main.pressure} hPa`;
-            minTemp.innerHTML = `${data.main.temp_min}°C`
-            maxTemp.innerHTML = `${data.main.temp_max}°C`
-            cloudiness.innerHTML = `${data.clouds.all}%`
-            let valueSecondsAPI = data.dt * 1000;
-
-            const date = new Date(valueSecondsAPI);
-
-            const day = date.getDate();
-            const month = date.toLocaleString('pt-BR', { month: 'long' });
-            const year = date.getFullYear();
-            const hours = date.getHours();
-            const minutes = String(date.getMinutes()).padStart(2, '0');
-            update.innerHTML = `${day} de ${month} de ${year} ás ${hours}:${minutes}.`
-
-
-
-            const velocidadeVento = data.wind.speed * 3.6;
-
-            speedWind.innerHTML = `Vento: ${velocidadeVento.toFixed(1)} km/h`
-
-            const icone = data.weather[0].icon;
-
-            const urlIcone = `https://openweathermap.org/img/wn/${icone}@4x.png`;
-
-            imgClima.src = urlIcone;
 
         })
         .catch(error => console.error('Erro:', error));
@@ -147,3 +137,44 @@ btnSearch.addEventListener('click', (geoPositionLatitude, geoPositionLongitude) 
 
 
 
+
+
+function updateInfoScreen(data) {
+    console.log(`Temperatura em ${data.name}: ${data.main.temp}°C`);
+    console.log(`Condição: ${data.weather[0].description}`);
+    TitleCityHTML.innerHTML = data.name;
+    temperatureHTML.innerHTML = `${data.main.temp}°C`;
+
+    let conditionTempValue = `${data.weather[0].description}`
+    let FormatCondition = conditionTempValue.charAt(0).toUpperCase() + conditionTempValue.slice(1);
+    conditionTemp.innerHTML = FormatCondition;
+    umidityHTML.innerHTML = `Umidade: ${data.main.humidity}%`
+    feels_like_temperature.innerHTML = data.main.feels_like;
+    visibility.innerHTML = `${data.visibility / 1000} km`;
+    pressure.innerHTML = `${data.main.pressure} hPa`;
+    minTemp.innerHTML = `${data.main.temp_min}°C`
+    maxTemp.innerHTML = `${data.main.temp_max}°C`
+    cloudiness.innerHTML = `${data.clouds.all}%`
+
+    let valueSecondsAPI = data.dt * 1000;
+
+    const date = new Date(valueSecondsAPI);
+
+    const day = date.getDate();
+    const month = date.toLocaleString('pt-BR', { month: 'long' });
+    const year = date.getFullYear();
+    const hours = date.getHours();
+    const minutes = String(date.getMinutes()).padStart(2, '0');
+    update.innerHTML = `${day} de ${month} de ${year} ás ${hours}:${minutes}.`
+
+
+    const velocidadeVento = data.wind.speed * 3.6;
+
+    speedWind.innerHTML = `Vento: ${velocidadeVento.toFixed(1)} km/h`
+
+    const icone = data.weather[0].icon;
+
+    const urlIcone = `https://openweathermap.org/img/wn/${icone}@4x.png`;
+
+    imgClima.src = urlIcone;
+}
