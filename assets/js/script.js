@@ -95,17 +95,30 @@ btnSearch.addEventListener('click', () => {
 
 
 
-const today = new Date();
+// const today = new Date();
 
-for (let i = 0; i <= 5; i++) {
-    const nextDay = new Date(today);
-    nextDay.setDate(today.getDate() + i);
+// for (let i = 0; i <= 5; i++) {
+//     const nextDay = new Date(today);
+//     nextDay.setDate(today.getDate() + i);
 
-    const nextDayName = nextDay.toLocaleString('pt-BR', {
-        weekday: 'long'
-    });
-    NextDaySpan[i].innerHTML = nextDayName;
+//     const nextDayName = nextDay.toLocaleString('pt-BR', {
+//         weekday: 'long'
+//     });
+//     NextDaySpan[i].innerHTML = nextDayName;
 
-    console.log(nextDayName)
+//     console.log(nextDayName)
 
+// }
+
+function sucessGeoPosition(Successfulgeolocalization) {
+    alert(geolocalization);
 }
+
+function errorGeoPosition(errorGeoLocalization) {
+    console.error(erro)
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+    navigator.geolocation.getCurrentPosition(Successfulgeolocalization, errorGeoLocalization)
+})
+
