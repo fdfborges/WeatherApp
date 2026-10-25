@@ -110,15 +110,18 @@ btnSearch.addEventListener('click', () => {
 
 // }
 
-function sucessGeoPosition(Successfulgeolocalization) {
-    alert(geolocalization);
+
+
+
+function posicaoObtidaComSucesso(geolocatizacao){
+    console.log(geolocatizacao)
 }
 
-function errorGeoPosition(errorGeoLocalization) {
-    console.error(erro)
+function posicaoNaoPodeSerObtida(erro){
+    console.error(erro);
 }
 
-window.addEventListener('DOMContentLoaded', () => {
-    navigator.geolocation.getCurrentPosition(Successfulgeolocalization, errorGeoLocalization)
-})
-
+navigator.geolocation.getCurrentPosition(
+    posicaoObtidaComSucesso,
+    posicaoNaoPodeSerObtida
+);
