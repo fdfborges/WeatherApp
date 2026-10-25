@@ -35,6 +35,8 @@ if (GeoLocationValueLocalStorage === null) {
                 "GeoLocalizacao",
                 JSON.stringify({ geoPositionLatitude, geoPositionLongitude })
             );
+            searchTempToCoords(geoPositionLatitude, geoPositionLongitude);
+
         },
         (erro) => {
             console.error("Erro ao obter localização:", erro.message);
@@ -42,15 +44,22 @@ if (GeoLocationValueLocalStorage === null) {
     )
 } else {
     console.log("CHAVE PREENCHIDA", GeoLocationValueLocalStorage)
-
     const coordenadasColetadas = JSON.parse(GeoLocationValueLocalStorage);
-    console.log(coordenadasColetadas.geoPositionLatitude)
-    console.log(coordenadasColetadas.geoPositionLongitude)
+    searchTempToCoords(coordenadasColetadas.geoPositionLatitude, coordenadasColetadas.geoPositionLongitude)
 
-    const urlWithDataColeted = `https://api.openweathermap.org/data/2.5/weather?lat=${coordenadasColetadas.geoPositionLatitude}&lon=${coordenadasColetadas.geoPositionLongitude}&appid=${apiKey}&units=metric&lang=pt_br`;
+}
+
+function searchTempToCoords(latitude, longitude) {
+
+    const urlWithDataColeted = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric&lang=pt_br`;
 
     fetch(urlWithDataColeted)
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Erro ao consultar o clima");
+            }
+            return response.json();
+        })
         .then(data => {
             updateInfoScreen(data);
 
@@ -58,7 +67,6 @@ if (GeoLocationValueLocalStorage === null) {
         })
         .catch(error => console.error('Erro:', error));
 }
-
 
 
 btnSearch.addEventListener('click', () => {
