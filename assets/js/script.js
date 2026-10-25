@@ -19,13 +19,30 @@ const apiKey = 'f83680206b3f8cd3105b8b9b4daaedbd'
 
 let cidade = '';
 
-btnSearch.addEventListener('click', () => {
+navigator.geolocation.getCurrentPosition(
+    (posicao) => {
+        const geoPositionLatitude = posicao.coords.latitude;
+        const geoPositionLongitude = posicao.coords.longitude;
+
+        console.log(`LAT: ${geoPositionLatitude}, LONG: ${geoPositionLongitude}`);
+
+        localStorage.setItem(
+            "GeoLocalizacao",
+            JSON.stringify({ geoPositionLatitude, geoPositionLongitude })
+        );
+    },
+    (erro) => {
+        console.error("Erro ao obter localização:", erro.message);
+    }
+)
+
+btnSearch.addEventListener('click', (geoPositionLatitude, geoPositionLongitude) => {
     const cidade = inptSearch.value;
     console.log(inptSearch.value)
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${cidade}&appid=${apiKey}&units=metric&lang=pt_br`
     const urlGeo = `https://api.openweathermap.org/geo/1.0/direct?q=${cidade},BR&limit=1&appid=${apiKey}`
 
-
+    console.log(`TEST ${geoPositionLatitude}, ${geoPositionLongitude}`)
 
     fetch(url)
         .then(response => response.json())
@@ -127,22 +144,6 @@ btnSearch.addEventListener('click', () => {
 //     posicaoNaoPodeSerObtida
 // );
 
-navigator.geolocation.getCurrentPosition(
-    (posicao) => {
-        const geoPositionLatitude = posicao.coords.latitude;
-        const geoPositionLongitude = posicao.coords.longitude;
-
-        console.log(`LAT: ${geoPositionLatitude}, LONG: ${geoPositionLongitude}`);
-
-        localStorage.setItem(
-            "GeoLocalizacao",
-            JSON.stringify({ geoPositionLatitude, geoPositionLongitude })
-        );
-    },
-    (erro) => {
-        console.error("Erro ao obter localização:", erro.message);
-    }
-)
 
 
 
