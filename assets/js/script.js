@@ -113,15 +113,42 @@ btnSearch.addEventListener('click', () => {
 
 
 
-function posicaoObtidaComSucesso(geolocatizacao){
-    console.log(geolocatizacao)
+// function posicaoObtidaComSucesso(geolocatizacao){
+//     console.log(geolocatizacao)
+//     console.log(geolocatizacao.coords)
+// }
+
+// function posicaoNaoPodeSerObtida(erro){
+//     console.error(erro);
+// }
+
+// navigator.geolocation.getCurrentPosition(
+//     posicaoObtidaComSucesso,
+//     posicaoNaoPodeSerObtida
+// );
+
+function obtergeoLocalizacao() {
+    if (!navigator.geolocation) {
+        console.log("Geolocalização não suportada");
+        return;
+    }
+    navigator.geolocation.getCurrentPosition(
+        (posicao) => {
+            const geoPositionLatitude = posicao.coords.latitude;
+            const geoPositionLongitude = posicao.coords.longitude;
+
+            console.log(`LAT: ${geoPositionLatitude}, LONG: ${geoPositionLongitude}`);
+
+            localStorage.setItem(
+                "GeoLocalizacao",
+                JSON.stringify({ geoPositionLatitude, geoPositionLongitude })
+            );
+        },
+        (erro) => {
+            console.error("Erro ao obter localização:", erro.message);
+        }
+    )
 }
 
-function posicaoNaoPodeSerObtida(erro){
-    console.error(erro);
-}
 
-navigator.geolocation.getCurrentPosition(
-    posicaoObtidaComSucesso,
-    posicaoNaoPodeSerObtida
-);
+
