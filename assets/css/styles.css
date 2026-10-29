@@ -569,7 +569,7 @@ footer {
     color: var(--color-purple-light);
 }
 
-@media (max-width: 371px) {
+@media (max-width: 768px) {
     header {
         padding: 20px 30px;
         gap: 30px;
