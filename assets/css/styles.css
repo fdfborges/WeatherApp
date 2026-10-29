@@ -1,5 +1,4 @@
 @import url(./variables.css);
-@import url(./medias.css);
 
 * {
     margin: 0;
@@ -222,7 +221,7 @@ main {
 }
 
 
-.textsUpdate{
+.textsUpdate {
     display: flex;
     gap: 10px;
 }
@@ -233,12 +232,12 @@ main {
     font-size: 14px
 }
 
-.containerUpdate svg{
+.containerUpdate svg {
     width: 30px;
     height: 30px;
 }
 
-.containerUpdate svg path{
+.containerUpdate svg path {
     fill: var(--color-purple-light);
 }
 
@@ -299,7 +298,7 @@ main {
     display: flex;
     align-items: center;
     border: 2px solid var(--color-card);
-    
+
     border-bottom: 0;
     border-right: 0;
     border-left: 0;
@@ -570,4 +569,123 @@ footer {
 
 .containerFooterFooter strong {
     color: var(--color-purple-light);
+}
+
+@media (max-width: 371px) {
+    header {
+        padding: 20px 30px;
+        gap: 30px;
+    }
+
+    header span {
+        font-size: 20px;
+    }
+
+    header .headLine span {
+        font-size: 10px;
+    }
+
+    header .logoContainer img {
+        height: 42px;
+    }
+
+    main {
+        padding: 30px;
+    }
+
+    .cardPrincipalContainerControllerDiv {
+        flex-direction: column;
+    }
+
+    #imgClima {
+        height: 100px;
+    }
+
+    .cardPrincipalMainRight span {
+        font-size: 30px;
+    }
+
+    .cardPrincipalMainRight p {
+        font-size: 15px;
+    }
+
+    #umidityHTML,
+    #speedWind {
+        font-size: 13px;
+    }
+
+    .cardPrincipalContainerRight {
+        flex-wrap: wrap;
+        border: 0px;
+    }
+
+    .cardPrincipalContainerRight_Left,
+    .cardPrincipalContainerRight_Right {
+        border: 1px solid var(--color-card);
+        border-top: 0px;
+    }
+    .containerCardVariablesRightPrincipal {
+        gap: 30px;
+    }
+
+    .containerCardVariablesRight {
+        padding: 10px 0px;
+    }
+    .containerCardVariablesRight span{
+    font-size: 12px;
+    }
+    .containerCardVariablesRight p{
+        font-size: 14px;
+    }
+
+    .containerCardVariablesLeft svg {
+        width: 30px;
+        height: 30px;
+    }
+
+    .containerUpdate {
+        border: 0px;
+    }
+    .containerUpdate span, .containerUpdate p{
+        font-size: 10px;
+    }
+    .containerUpdate svg{
+        width: 28px;
+        height: 28px;
+    }
+    .carouselCardsContainer{
+        gap: 4px;
+        flex-wrap: wrap;
+    }
+    .mainFooterContainerCard{
+        width: 100px;
+        height: 100px;
+    }
+    .mainFooterContainerCard svg{
+        width: 30px;
+        height: 30px;
+        margin: 10px;
+    }
+    .mainFooterContainerCard span{
+        font-size: 14px;
+    }
+    .mainFooterCardFooter span, .mainFooterCardFooter p{
+        font-size: 14px;
+    }
+    footer{
+        
+    }
+    .footerUp{
+        flex-wrap: wrap;
+        gap: 60px;
+    }
+    .footerContainerLeftContentRight span{
+        font-size: 25px;
+    }
+    .footerContainerLeftContentRight p{
+        font-size: 14px;
+    }
+    .containerFooterFooter{
+        text-align: center;
+    }
 }
