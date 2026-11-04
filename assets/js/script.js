@@ -17,6 +17,16 @@ let inptSearch = document.getElementById("inptSearch");
 const btnSearch = document.getElementById("btnSearch");
 const apiKey = 'f83680206b3f8cd3105b8b9b4daaedbd'
 
+let toggleButton = document.getElementById("toggleButton");
+let containerToggle = document.getElementById("toggleTheme");
+let nightSVG = document.getElementById("nightSVG");
+let DaySVG = document.getElementById("DaySVG");
+
+let body = document.body;
+let cardPrincipalContainerPrincipal = document.querySelector(".cardPrincipalContainerPrincipal");
+let containerCardVariablesRightPrincipal = document.querySelectorAll(".containerCardVariablesRightPrincipal");
+let inputContainerPrincipal = document.querySelector(".inputContainerPrincipal");
+
 let cidade = '';
 
 
@@ -186,3 +196,65 @@ function updateInfoScreen(data) {
 
     imgClima.src = urlIcone;
 }
+
+
+
+let containerIconSearch = document.querySelector(".containerIconSearch");
+let cardPrincipalContainerRight = document.querySelector(".cardPrincipalContainerRight");
+let containerUpdate = document.querySelector(".containerUpdate");
+let mainFooterContainerCard = document.querySelectorAll(".mainFooterContainerCard");
+
+function toggleTheme() {
+    if (toggleButton.style.transform === "translateX(0px)") {
+        toggleButton.style.transform = "translateX(32px)";
+        nightSVG.style.fill = "var(--color-text)";
+        DaySVG.style.fill = "var(--color-purple-light)";
+
+        const elementosTheme = document.querySelectorAll("body, div, input, span, p, a");
+
+        elementosTheme.forEach(elemento => {
+            elemento.style.cssText = "";
+        })
+
+    } else {
+        toggleButton.style.transform = "translateX(0px)";
+        DaySVG.style.fill = "var(--color-text)";
+        nightSVG.style.fill = "var(--color-purple-light)";
+        body.style.backgroundColor = "var(--color-backgroundLightTheme)";
+        cardPrincipalContainerPrincipal.style.backgroundColor = "var(--color-background-objectsLightTheme)";
+        inptSearch.style.backgroundColor = "var(--color-background-objectsLightTheme)";
+        containerIconSearch.style.backgroundColor = "var(--color-background-objectsLightTheme)";
+        containerIconSearch.style.borderRadius = "100%";
+        inputContainerPrincipal.style.backgroundColor = "var(--color-background-objectsLightTheme)";
+        containerToggle.style.backgroundColor = "var(--color-background-objectsLightTheme)";
+        containerToggle.style.border = "1px solid var(--colorBorderLightTheme)";
+        cardPrincipalContainerRight.style.borderLeft = "1px solid var(--colorBorderLightTheme)";
+        containerUpdate.style.borderTop = "1px solid var(--colorBorderLightTheme)";
+
+
+        containerCardVariablesRightPrincipal.forEach(elements => {
+            elements.style.backgroundColor = "var(--color-background-objectsLightTheme)";
+            elements.style.border = "1px solid var(--colorBorderLightTheme";
+        })
+
+        const AllTextsSpan = document.querySelectorAll("span, p, a");
+        AllTextsSpan.forEach(AllTextsSpan => {
+            AllTextsSpan.style.color = "var(--colorTextsLightTheme)";
+        })
+
+        const AllTextsP = document.querySelectorAll("p");
+        AllTextsP.forEach(AllTextsP => {
+            AllTextsP.style.fontWeight = "900";
+        })
+
+        const mainFooterContainerCard = document.querySelectorAll(".mainFooterContainerCard");
+        mainFooterContainerCard.forEach(elements => {
+            elements.style.backgroundColor = "var(--color-background-objectsLightTheme)";
+        })
+    }
+}
+
+containerToggle.addEventListener("click", () => {
+    toggleTheme();
+})
+

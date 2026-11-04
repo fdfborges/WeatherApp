@@ -16,4 +16,12 @@
     --color-text: #FFFFFF;
     --color-text-secondary: rgb(219, 212, 255);
     --color-purple-placeholder: #a99afb54;
+
+    /*Cores Tema Claro*/
+    --color-backgroundLightTheme: #f3f1f9;
+    --color-background-objectsLightTheme: #FFF;
+    --colorblueLightTheme: #ebf1fe;
+    --colorTextsLightTheme: #000;
+    --colorBorderLightTheme: rgb(199, 199, 199);
 }
+
