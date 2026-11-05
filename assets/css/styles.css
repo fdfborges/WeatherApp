@@ -74,6 +74,7 @@ header span strong {
 }
 
 .ToggleDay svg path{
+    transform: translateX(2px);
     fill: var(--color-purple-light);
 }
 

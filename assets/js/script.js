@@ -205,7 +205,7 @@ let containerUpdate = document.querySelector(".containerUpdate");
 let mainFooterContainerCard = document.querySelectorAll(".mainFooterContainerCard");
 
 function toggleTheme() {
-    if (toggleButton.style.transform === "translateX(0px)") {
+    if (toggleButton.style.transform === "translateX(2px)") {
         toggleButton.style.transform = "translateX(32px)";
         nightSVG.style.fill = "var(--color-text)";
         DaySVG.style.fill = "var(--color-purple-light)";
@@ -217,7 +217,7 @@ function toggleTheme() {
         })
 
     } else {
-        toggleButton.style.transform = "translateX(0px)";
+        toggleButton.style.transform = "translateX(2px)";
         DaySVG.style.fill = "var(--color-text)";
         nightSVG.style.fill = "var(--color-purple-light)";
         body.style.backgroundColor = "var(--color-backgroundLightTheme)";
