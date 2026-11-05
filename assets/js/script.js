@@ -37,14 +37,10 @@ let cidade = '';
 const GeoLocationValueLocalStorage = localStorage.getItem("GeoLocalizacao");
 
 if (GeoLocationValueLocalStorage === null) {
-    console.log("CHAVE NÂO EXISTE")
     navigator.geolocation.getCurrentPosition(
         (posicao) => {
             const geoPositionLatitude = posicao.coords.latitude;
             const geoPositionLongitude = posicao.coords.longitude;
-
-            console.log(`LAT: ${geoPositionLatitude}, LONG: ${geoPositionLongitude}`);
-
             localStorage.setItem(
                 "GeoLocalizacao",
                 JSON.stringify({ geoPositionLatitude, geoPositionLongitude })
@@ -57,10 +53,164 @@ if (GeoLocationValueLocalStorage === null) {
         }
     )
 } else {
-    console.log("CHAVE PREENCHIDA", GeoLocationValueLocalStorage)
     const coordenadasColetadas = JSON.parse(GeoLocationValueLocalStorage);
     searchTempToCoords(coordenadasColetadas.geoPositionLatitude, coordenadasColetadas.geoPositionLongitude)
+    searchTempForeCast(GeoLocationValueLocalStorage)
 
+}
+
+
+
+
+
+function searchTempForeCast(GeoLocationValueLocalStorage) {
+    const coordenadasColetadasForeCast = JSON.parse(GeoLocationValueLocalStorage);
+    const UrlForeCastWeather = `https://api.openweathermap.org/data/2.5/forecast?lat=${coordenadasColetadasForeCast.geoPositionLatitude}&lon=${coordenadasColetadasForeCast.geoPositionLongitude}&appid=${apiKey}&units=metric`;
+
+    fetch(UrlForeCastWeather)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Erro ao trazer o tempo");
+            }
+            return response.json();
+        })
+        .then(data => {
+            updatingScreenForecast(data)
+
+        })
+        .catch(error => console.error('Erro:', error));
+
+}
+
+function updatingScreenForecast(data) {
+    const date1Completed = data.list[2].dt_txt;
+    const tempMinForeCast1 = Math.round(data.list[2].main.temp_max);
+    const tempMaxForeCast1 = Math.round(data.list[2].main.temp_min);
+
+    const date2Completed = data.list[10].dt_txt;
+    const tempMinForeCast2 = Math.round(data.list[10].main.temp_max);
+    const tempMaxForeCast2 = Math.round(data.list[10].main.temp_min);
+
+    const date3Completed = data.list[18].dt_txt;
+    const tempMinForeCast3 = Math.round(data.list[18].main.temp_max);
+    const tempMaxForeCast3 = Math.round(data.list[18].main.temp_min);
+
+    const date4Completed = data.list[26].dt_txt;
+    const tempMinForeCast4 = Math.round(data.list[26].main.temp_max);
+    const tempMaxForeCast4 = Math.round(data.list[26].main.temp_min);
+
+    const date5Completed = data.list[34].dt_txt;
+    const tempMinForeCast5 = Math.round(data.list[34].main.temp_max);
+    const tempMaxForeCast5 = Math.round(data.list[34].main.temp_min);
+
+    const date1Short = date1Completed.split(" ")[0];
+    const date2Short = date2Completed.split(" ")[0];
+    const date3Short = date3Completed.split(" ")[0];
+    const date4Short = date4Completed.split(" ")[0];
+    const date5Short = date5Completed.split(" ")[0];
+
+    const nameDayForeCast1 = new Intl.DateTimeFormat('pt-BR',
+        {
+            weekday: "long"
+
+        }).format(new Date(date1Short + "T12:00:00"));
+
+    const nameDayForeCast2 = new Intl.DateTimeFormat('pt-BR',
+        {
+            weekday: "long"
+
+        }).format(new Date(date2Short + "T12:00:00"));
+
+    const nameDayForeCast3 = new Intl.DateTimeFormat('pt-BR',
+        {
+            weekday: "long"
+
+        }).format(new Date(date3Short + "T12:00:00"));
+
+    const nameDayForeCast4 = new Intl.DateTimeFormat('pt-BR',
+        {
+            weekday: "long"
+
+        }).format(new Date(date4Short + "T12:00:00"));
+
+    const nameDayForeCast5 = new Intl.DateTimeFormat('pt-BR',
+        {
+            weekday: "long"
+
+        }).format(new Date(date5Short + "T12:00:00"));
+
+    const date1ShorFormat = nameDayForeCast1.charAt(0).toLocaleUpperCase() + nameDayForeCast1.slice(1);
+    const date2ShorFormat = nameDayForeCast2.charAt(0).toLocaleUpperCase() + nameDayForeCast2.slice(1);
+    const date3ShorFormat = nameDayForeCast3.charAt(0).toLocaleUpperCase() + nameDayForeCast3.slice(1);
+    const date4ShorFormat = nameDayForeCast4.charAt(0).toLocaleUpperCase() + nameDayForeCast4.slice(1);
+    const date5ShorFormat = nameDayForeCast5.charAt(0).toLocaleUpperCase() + nameDayForeCast5.slice(1);
+
+    const Nextday1 = document.getElementById("Nextday1");
+    const NextTempMax1 = document.getElementById("NextTempMax1")
+    const NextTempMin1 = document.getElementById("NextTempMin1")
+    const IconForeCast1 = document.getElementById("IconForeCast1")
+
+    const Nextday2 = document.getElementById("Nextday2");
+    const NextTempMax2 = document.getElementById("NextTempMax2")
+    const NextTempMin2 = document.getElementById("NextTempMin2")
+    const IconForeCast2 = document.getElementById("IconForeCast2")
+
+    const Nextday3 = document.getElementById("Nextday3");
+    const NextTempMax3 = document.getElementById("NextTempMax3")
+    const NextTempMin3 = document.getElementById("NextTempMin3")
+    const IconForeCast3 = document.getElementById("IconForeCast3")
+
+    const Nextday4 = document.getElementById("Nextday4");
+    const NextTempMax4 = document.getElementById("NextTempMax4")
+    const NextTempMin4 = document.getElementById("NextTempMin4")
+    const IconForeCast4 = document.getElementById("IconForeCast4")
+
+    const Nextday5 = document.getElementById("Nextday5");
+    const NextTempMax5 = document.getElementById("NextTempMax5")
+    const NextTempMin5 = document.getElementById("NextTempMin5")
+    const IconForeCast15 = document.getElementById("IconForeCast5")
+
+    Nextday1.innerHTML = `${date1ShorFormat.slice(0, 3)}`;
+    NextTempMax1.innerHTML = `${tempMinForeCast1}°`
+    NextTempMin1.innerHTML = `/${tempMaxForeCast1}`
+
+
+    Nextday2.innerHTML = `${date2ShorFormat.slice(0, 3)}`;
+    NextTempMax2.innerHTML = `${tempMinForeCast2}°`
+    NextTempMin2.innerHTML = `/${tempMaxForeCast2}`
+
+    Nextday3.innerHTML = `${date3ShorFormat.slice(0, 3)}`;
+    NextTempMax3.innerHTML = `${tempMinForeCast3}°`
+    NextTempMin3.innerHTML = `/${tempMaxForeCast3}`
+
+    Nextday4.innerHTML = `${date4ShorFormat.slice(0, 3)}`;
+    NextTempMax4.innerHTML = `${tempMinForeCast4}°`
+    NextTempMin4.innerHTML = `/${tempMaxForeCast4}`
+
+    Nextday5.innerHTML = `${date5ShorFormat.slice(0, 3)}`;
+    NextTempMax5.innerHTML = `${tempMinForeCast5}°`
+    NextTempMin5.innerHTML = `/${tempMaxForeCast5}`
+
+
+    const iconeForeCast1 = data.list[2].weather[0].icon
+    const UrlIconForeCast1 = `https://openweathermap.org/img/wn/${iconeForeCast1}@2x.png`
+    IconForeCast1.src = UrlIconForeCast1;
+
+    const iconeForeCast2 = data.list[10].weather[0].icon
+    const UrlIconForeCast2 = `https://openweathermap.org/img/wn/${iconeForeCast2}@2x.png`
+    IconForeCast2.src = UrlIconForeCast2;
+
+    const iconeForeCast3 = data.list[18].weather[0].icon
+    const UrlIconForeCast3 = `https://openweathermap.org/img/wn/${iconeForeCast3}@2x.png`
+    IconForeCast3.src = UrlIconForeCast3;
+
+    const iconeForeCast4 = data.list[26].weather[0].icon
+    const UrlIconForeCast4 = `https://openweathermap.org/img/wn/${iconeForeCast4}@2x.png`
+    IconForeCast4.src = UrlIconForeCast4;
+
+    const iconeForeCast5 = data.list[34].weather[0].icon
+    const UrlIconForeCast5 = `https://openweathermap.org/img/wn/${iconeForeCast5}@2x.png`
+    IconForeCast5.src = UrlIconForeCast5;
 }
 
 function searchTempToCoords(latitude, longitude) {
@@ -85,9 +235,17 @@ function searchTempToCoords(latitude, longitude) {
 
 btnSearch.addEventListener('click', () => {
     const cidade = inptSearch.value;
-    console.log(inptSearch.value)
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${cidade}&appid=${apiKey}&units=metric&lang=pt_br`
     const urlGeo = `https://api.openweathermap.org/geo/1.0/direct?q=${cidade},BR&limit=1&appid=${apiKey}`
+    const urlForeCast = `https://api.openweathermap.org/data/2.5/forecast?q=${cidade}&appid=${apiKey}&units=metric&lang=pt_br;`
+
+    fetch(urlForeCast)
+        .then(response => response.json())
+        .then(data => {
+            updatingScreenForecast(data)
+
+        })
+        .catch(error => console.error('Erro ForeCast Click', error))
 
 
     fetch(url)
@@ -108,14 +266,8 @@ btnSearch.addEventListener('click', () => {
             const namesCountry = new Intl.DisplayNames(['pt-BR'], {
                 type: 'region'
             });
-
             const pais = namesCountry.of(data[0].country);
-            console.log(pais);
-
             StateAndCountry.innerHTML = `${data[0].state}, ${pais}`;
-            console.log(data)
-
-
         })
         .catch(error => console.error('Erro:', error));
 
@@ -123,8 +275,6 @@ btnSearch.addEventListener('click', () => {
 
 
 function updateInfoScreen(data) {
-    console.log(`Temperatura em ${data.name}: ${data.main.temp}°C`);
-    console.log(`Condição: ${data.weather[0].description}`);
     TitleCityHTML.innerHTML = data.name;
     temperatureHTML.innerHTML = `${data.main.temp}°C`;
 
@@ -160,6 +310,7 @@ function updateInfoScreen(data) {
     const urlIcone = `https://openweathermap.org/img/wn/${icone}@4x.png`;
 
     imgClima.src = urlIcone;
+
 }
 
 function toggleTheme() {
@@ -215,4 +366,3 @@ function toggleTheme() {
 containerToggle.addEventListener("click", () => {
     toggleTheme();
 })
-

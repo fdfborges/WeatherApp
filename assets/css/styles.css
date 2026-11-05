@@ -8,7 +8,7 @@
     font-family: var(--font-primary);
 }
 
-body{
+body {
     background-color: var(--color-background);
 }
 
@@ -68,7 +68,7 @@ header span strong {
     height: 20px;
 }
 
-.ToggleDay svg path{
+.ToggleDay svg path {
     transform: translateX(2px);
     fill: var(--color-purple-light);
 }
@@ -231,6 +231,13 @@ main {
     margin-right: 20px;
 }
 
+#IconForeCast1 {
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
+
+}
+
 .cardPrincipalMainRight {
     display: flex;
     flex-direction: column;
@@ -388,7 +395,7 @@ main {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    
+
 }
 
 .mainFooterContainerPrincipal .TitleCardCarousel {
@@ -773,10 +780,6 @@ footer {
         flex-direction: column;
     }
 
-    #imgClima {
-        height: 100px;
-    }
-
     .cardPrincipalMainRight span {
         font-size: 30px;
     }
@@ -846,10 +849,11 @@ footer {
         height: 100px;
     }
 
-    .mainFooterContainerCard svg {
-        width: 30px;
-        height: 30px;
-        margin: 10px;
+    .IconForeCastClass {
+        width: 300px;
+        height: 300px;
+        object-fit: contain;
+        
     }
 
     .mainFooterContainerCard span {
