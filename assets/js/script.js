@@ -26,6 +26,10 @@ let body = document.body;
 let cardPrincipalContainerPrincipal = document.querySelector(".cardPrincipalContainerPrincipal");
 let containerCardVariablesRightPrincipal = document.querySelectorAll(".containerCardVariablesRightPrincipal");
 let inputContainerPrincipal = document.querySelector(".inputContainerPrincipal");
+let containerIconSearch = document.querySelector(".containerIconSearch");
+let cardPrincipalContainerRight = document.querySelector(".cardPrincipalContainerRight");
+let containerUpdate = document.querySelector(".containerUpdate");
+let mainFooterContainerCard = document.querySelectorAll(".mainFooterContainerCard");
 
 let cidade = '';
 
@@ -86,7 +90,6 @@ btnSearch.addEventListener('click', () => {
     const urlGeo = `https://api.openweathermap.org/geo/1.0/direct?q=${cidade},BR&limit=1&appid=${apiKey}`
 
 
-
     fetch(url)
         .then(response => response.json())
         .then(data => {
@@ -117,44 +120,6 @@ btnSearch.addEventListener('click', () => {
         .catch(error => console.error('Erro:', error));
 
 })
-
-
-
-// const today = new Date();
-
-// for (let i = 0; i <= 5; i++) {
-//     const nextDay = new Date(today);
-//     nextDay.setDate(today.getDate() + i);
-
-//     const nextDayName = nextDay.toLocaleString('pt-BR', {
-//         weekday: 'long'
-//     });
-//     NextDaySpan[i].innerHTML = nextDayName;
-
-//     console.log(nextDayName)
-
-// }
-
-
-
-
-// function posicaoObtidaComSucesso(geolocatizacao){
-//     console.log(geolocatizacao)
-//     console.log(geolocatizacao.coords)
-// }
-
-// function posicaoNaoPodeSerObtida(erro){
-//     console.error(erro);
-// }
-
-// navigator.geolocation.getCurrentPosition(
-//     posicaoObtidaComSucesso,
-//     posicaoNaoPodeSerObtida
-// );
-
-
-
-
 
 
 function updateInfoScreen(data) {
@@ -196,13 +161,6 @@ function updateInfoScreen(data) {
 
     imgClima.src = urlIcone;
 }
-
-
-
-let containerIconSearch = document.querySelector(".containerIconSearch");
-let cardPrincipalContainerRight = document.querySelector(".cardPrincipalContainerRight");
-let containerUpdate = document.querySelector(".containerUpdate");
-let mainFooterContainerCard = document.querySelectorAll(".mainFooterContainerCard");
 
 function toggleTheme() {
     if (toggleButton.style.transform === "translateX(2px)") {
