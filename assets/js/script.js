@@ -339,6 +339,7 @@ function toggleTheme() {
         elementosTheme.forEach(elemento => {
             elemento.style.cssText = "";
         })
+        updateScreenInfoFavoriteCity();
 
     } else {
         toggleButton.style.transform = "translateX(2px)";
@@ -354,6 +355,7 @@ function toggleTheme() {
         containerToggle.style.border = "1px solid var(--colorBorderLightTheme)";
         cardPrincipalContainerRight.style.borderLeft = "1px solid var(--colorBorderLightTheme)";
         containerUpdate.style.borderTop = "1px solid var(--colorBorderLightTheme)";
+        updateScreenInfoFavoriteCity();
 
 
         containerCardVariablesRightPrincipal.forEach(elements => {
@@ -504,12 +506,6 @@ let Temp;
 let minTempFavorite;
 
 BtnFixedCity.addEventListener('click', () => {
-    alert("Test")
-
-    console.log(nameCity);
-    console.log(Temp);
-
-    console.log(CardFavoriteCityCenter)
 
     let nextAvaliableCard;
     let nextAvaliableSpan;
