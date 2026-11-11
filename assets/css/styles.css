@@ -192,6 +192,125 @@ main {
     padding: 30px;
 }
 
+.ContainerFavoriteCitys {
+    display: flex;
+    flex-direction: column;
+}
+
+.ContainerFavoriteCitysTitle {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.ContainerFavoriteCitysTitle span {
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.ContainerFavoriteCitysTitle svg {
+    width: 30px;
+    fill: var(--color-purple-light);
+}
+
+.ContainerFavoriteCitysTitle svg path {
+    width: 30px;
+    stroke: var(--color-purple-light);
+}
+
+.carrousellforCardsCitys {
+    display: flex;
+    gap: 30px;
+}
+
+.CardFavoriteCity {
+    display: flex;
+    align-items: center;
+    width: 330px;
+    height: 75px;
+    border: 1px solid var(--color-purple-light);
+    border-radius: 10px;
+}
+
+.IconFavoriteCityClass{
+    width: 100px;
+    height: 100px;
+}
+
+.CardFavoriteCityCenter {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding-left: 10px;
+}
+
+.FavoriteTempAndMinTemp{
+    display: flex;
+}
+
+.CardFavoriteCityCenter span {
+    font-size: 14px;
+}
+
+.CardFavoriteCityCenter p {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.CardFavoriteCityCenter strong{
+    font-size: 20px;
+    color: var(--color-purple-light);
+}
+
+.CardFavoriteCity_Right {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: right;
+    padding-right: 15px;
+    padding-top: 10px;
+
+}
+
+.background_FavorityCity_Right {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+}
+
+.CardFavoriteCity_Right .BtnDesafixedCard {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 10px;
+    height: 10px;
+    background-color: transparent;
+    border: 1px solid var(--color-purple-light);
+    border-radius: 100%;
+    padding: 10px;
+    font-size: 10px;
+}
+
+.CardFavoriteCity_Right .BtnDesafixedCard:hover {
+    border: 1px solid var(--color-primary);
+}
+
+.CardFavoriteCity_Right .BtnDesafixedCard:active {
+    border: 1px solid var(--color-purple-light);
+}
+
+.CardFavoriteCity_Right svg {
+    width: 25px;
+    height: 25px;
+    fill: var(--color-purple-light);
+}
+
+.CardFavoriteCity_Right svg path {
+    stroke: var(--color-purple-light);
+}
+
 
 .cardPrincipalContainerControllerDiv {
     display: flex;
@@ -210,6 +329,34 @@ main {
     flex-direction: column;
     gap: 5px;
 }
+
+.cardCityAndFixed {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.cardCityAndFixed button {
+    background-color: transparent;
+    border: none;
+}
+
+.cardCityAndFixed button svg {
+    width: 35px;
+}
+
+.cardCityAndFixed button svg path {
+    stroke: var(--color-purple-light);
+}
+
+.cardCityAndFixed button svg path:hover{
+    stroke: var(--color-primary);
+}
+
+.cardCityAndFixed button svg path:active{
+    stroke: var(--color-purple-light);
+}
+
 
 .cardPrincipalheader span {
     font-weight: bold;
@@ -853,7 +1000,7 @@ footer {
         width: 300px;
         height: 300px;
         object-fit: contain;
-        
+
     }
 
     .mainFooterContainerCard span {

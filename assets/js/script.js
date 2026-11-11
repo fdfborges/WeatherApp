@@ -30,11 +30,23 @@ let containerIconSearch = document.querySelector(".containerIconSearch");
 let cardPrincipalContainerRight = document.querySelector(".cardPrincipalContainerRight");
 let containerUpdate = document.querySelector(".containerUpdate");
 let mainFooterContainerCard = document.querySelectorAll(".mainFooterContainerCard");
-
 let cidade = '';
 
+let CardFavoriteCityCenter = document.querySelectorAll('.CardFavoriteCityCenter');
+let BtnFixedCity = document.getElementById("BtnFixedCity");
+
+let iconFavoriteCity1 = document.getElementById("iconFavoriteCity1");
+let BtnDesafixedCard1 = document.getElementById("BtnDesafixedCard1");
+let IconFavoriteCity2 = document.getElementById("IconFavoriteCity2");
+let iconFavoriteCity3 = document.getElementById("iconFavoriteCity3");
+let IconFavoriteCity4 = document.getElementById("IconFavoriteCity4");
 
 const GeoLocationValueLocalStorage = localStorage.getItem("GeoLocalizacao");
+
+
+window.addEventListener('DOMContentLoaded', () => {
+    updateScreenInfoFavoriteCity()
+})
 
 if (GeoLocationValueLocalStorage === null) {
     navigator.geolocation.getCurrentPosition(
@@ -168,7 +180,7 @@ function updatingScreenForecast(data) {
     const Nextday5 = document.getElementById("Nextday5");
     const NextTempMax5 = document.getElementById("NextTempMax5")
     const NextTempMin5 = document.getElementById("NextTempMin5")
-    const IconForeCast15 = document.getElementById("IconForeCast5")
+    const IconForeCast5 = document.getElementById("IconForeCast5")
 
     Nextday1.innerHTML = `${date1ShorFormat.slice(0, 3)}`;
     NextTempMax1.innerHTML = `${tempMinForeCast1}°`
@@ -226,7 +238,7 @@ function searchTempToCoords(latitude, longitude) {
         })
         .then(data => {
             updateInfoScreen(data);
-
+            GetInfoFixed1(data);
 
         })
         .catch(error => console.error('Erro:', error));
@@ -252,6 +264,7 @@ btnSearch.addEventListener('click', () => {
         .then(response => response.json())
         .then(data => {
             updateInfoScreen(data);
+            GetInfoFixed1(data);
 
 
         })
@@ -272,6 +285,8 @@ btnSearch.addEventListener('click', () => {
         .catch(error => console.error('Erro:', error));
 
 })
+
+let urlIcone;
 
 
 function updateInfoScreen(data) {
@@ -307,7 +322,7 @@ function updateInfoScreen(data) {
 
     const icone = data.weather[0].icon;
 
-    const urlIcone = `https://openweathermap.org/img/wn/${icone}@4x.png`;
+    urlIcone = `https://openweathermap.org/img/wn/${icone}@4x.png`;
 
     imgClima.src = urlIcone;
 
@@ -366,3 +381,224 @@ function toggleTheme() {
 containerToggle.addEventListener("click", () => {
     toggleTheme();
 })
+
+
+function GetInfoFixed1(data) {
+    nameCity = data.name;
+    Temp = data.main.temp;
+    minTempFavorite = data.main.temp_min;
+    console.log("TESTE", nameCity);
+    console.log("TESTE TEMP", Temp)
+}
+
+
+
+function updateScreenInfoFavoriteCity() {
+    let info1 = localStorage.getItem('InfoCardFixed1');
+    let cardFavoriteCity1 = document.getElementById("cardFavoriteCity1");
+
+    let info2 = localStorage.getItem('InfoCardFixed2');
+    let cardFavoriteCity2 = document.getElementById("cardFavoriteCity2");
+
+    let info3 = localStorage.getItem('InfoCardFixed3');
+    let cardFavoriteCity3 = document.getElementById("cardFavoriteCity3");
+
+    let info4 = localStorage.getItem('InfoCardFixed4');
+    let cardFavoriteCity4 = document.getElementById("cardFavoriteCity4");
+
+    if (info1 === null) {
+        SpanFavoriteCity1.innerHTML = "";
+        PFavoriteCity1.innerHTML = "";
+        PFavoriteCity1Min.innerHTML = "";
+        iconFavoriteCity1.removeAttribute("src");
+        cardFavoriteCity1.style.display = 'none';
+
+    } else {
+        SpanFavoriteCity1ValueStorage = JSON.parse(info1);
+        SpanFavoriteCity1.innerHTML = SpanFavoriteCity1ValueStorage.nameCity;
+        let TempTrunc1 = Math.trunc(SpanFavoriteCity1ValueStorage.Temp)
+        PFavoriteCity1.innerHTML = `${TempTrunc1}/`;
+        iconFavoriteCity1.src = SpanFavoriteCity1ValueStorage.urlIcone;
+        let minTempFavoriteTrunc1 = Math.trunc(SpanFavoriteCity1ValueStorage.minTempFavorite);
+        PFavoriteCity1Min.innerHTML = `${minTempFavoriteTrunc1}°`
+        cardFavoriteCity1.style.display = 'flex';
+    }
+
+    if (info2 === null) {
+        SpanFavoriteCity2.innerHTML = "";
+        PFavoriteCity2.innerHTML = "";
+        PFavoriteCity2Min.innerHTML = "";
+        iconFavoriteCity2.removeAttribute("src");
+        cardFavoriteCity2.style.display = 'none';
+    } else {
+        SpanFavoriteCity2ValueStorage = JSON.parse(info2);
+        SpanFavoriteCity2.innerHTML = SpanFavoriteCity2ValueStorage.nameCity;
+        let TempTrunc2 = Math.trunc(SpanFavoriteCity2ValueStorage.Temp)
+        PFavoriteCity2.innerHTML = `${TempTrunc2}/`;
+        iconFavoriteCity2.src = SpanFavoriteCity2ValueStorage.urlIcone;
+        let minTempFavoriteTrunc2 = Math.trunc(SpanFavoriteCity2ValueStorage.minTempFavorite);
+        PFavoriteCity2Min.innerHTML = `${minTempFavoriteTrunc2}°`
+        cardFavoriteCity2.style.display = 'flex';
+    }
+
+    if (info3 === null) {
+        SpanFavoriteCity3.innerHTML = "";
+        PFavoriteCity3.innerHTML = "";
+        PFavoriteCity3Min.innerHTML = "";
+        iconFavoriteCity3.removeAttribute("src");
+        cardFavoriteCity3.style.display = 'none';
+    } else {
+        SpanFavoriteCity3ValueStorage = JSON.parse(info3);
+        SpanFavoriteCity3.innerHTML = SpanFavoriteCity3ValueStorage.nameCity;
+        let TempTrunc3 = Math.trunc(SpanFavoriteCity3ValueStorage.Temp)
+        PFavoriteCity3.innerHTML = `${TempTrunc3}/`;
+        iconFavoriteCity3.src = SpanFavoriteCity3ValueStorage.urlIcone;
+        let minTempFavoriteTrunc3 = Math.trunc(SpanFavoriteCity3ValueStorage.minTempFavorite);
+        PFavoriteCity3Min.innerHTML = `${minTempFavoriteTrunc3}°`
+        cardFavoriteCity3.style.display = 'flex';
+
+    }
+
+    if (info4 === null) {
+        SpanFavoriteCity4.innerHTML = "";
+        PFavoriteCity4.innerHTML = "";
+        PFavoriteCity4Min.innerHTML = "";
+        iconFavoriteCity4.removeAttribute("src");
+        cardFavoriteCity4.style.display = 'none';
+    } else {
+        SpanFavoriteCity4ValueStorage = JSON.parse(info4);
+        SpanFavoriteCity4.innerHTML = SpanFavoriteCity4ValueStorage.nameCity;
+        let TempTrunc4 = Math.trunc(SpanFavoriteCity4ValueStorage.Temp)
+        PFavoriteCity4.innerHTML = `${TempTrunc4}/`;
+        iconFavoriteCity4.src = SpanFavoriteCity4ValueStorage.urlIcone;
+        let minTempFavoriteTrunc4 = Math.trunc(SpanFavoriteCity4ValueStorage.minTempFavorite);
+        PFavoriteCity4Min.innerHTML = `${minTempFavoriteTrunc4}°`
+        cardFavoriteCity4.style.display = 'flex';
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
+
+
+
+let nextAvaliableCard;
+let nextAvaliableSpan;
+let nextAvaliableP;
+let nextAvaliableStrong;
+let IconFavoriteCity;
+
+let nameCity;
+let Temp;
+let minTempFavorite;
+
+BtnFixedCity.addEventListener('click', () => {
+    alert("Test")
+
+    console.log(nameCity);
+    console.log(Temp);
+
+    console.log(CardFavoriteCityCenter)
+
+    let nextAvaliableCard;
+    let nextAvaliableSpan;
+
+    for (let localFavoriteCity of LocaisCardsStorage) {
+        let info = localStorage.getItem(localFavoriteCity)
+
+        if (info === null) {
+            console.log("Achei um card vazio", localFavoriteCity)
+
+            localStorage.setItem(
+                localFavoriteCity,
+                JSON.stringify({ nameCity, Temp, minTempFavorite, urlIcone })
+            )
+            break;
+        }
+    }
+
+    for (const card of CardFavoriteCityCenter) {
+        const span = card.querySelector('span');
+
+        if (span && span.textContent.trim() === "") {
+            console.log("Este card tem um span vazio:", card);
+
+            nextAvaliableCard = card;
+            nextAvaliableSpan = card.querySelector('span');
+            nextAvaliableP = card.querySelector('p');
+            IconFavoriteCity = card.querySelector('img');
+            nextAvaliableStrong = card.querySelectorAll('strong');
+
+
+
+
+
+            break;
+        }
+    }
+    updateScreenInfoFavoriteCity()
+
+})
+
+let SpanFavoriteCity1 = document.getElementById("SpanFavoriteCity1");
+let PFavoriteCity1 = document.getElementById("PFavoriteCity1");
+let PFavoriteCity1Min = document.getElementById("PFavoriteCity1Min");
+
+let SpanFavoriteCity2 = document.getElementById("SpanFavoriteCity2");
+let PFavoriteCity2 = document.getElementById("PFavoriteCity2");
+let PFavoriteCity2Min = document.getElementById("PFavoriteCity2Min");
+
+let SpanFavoriteCity3 = document.getElementById("SpanFavoriteCity3");
+let PFavoriteCity3 = document.getElementById("PFavoriteCity3");
+let PFavoriteCity3Min = document.getElementById("PFavoriteCity3Min");
+
+let SpanFavoriteCity4 = document.getElementById("SpanFavoriteCity4");
+let PFavoriteCity4 = document.getElementById("PFavoriteCity4");
+let PFavoriteCity4Min = document.getElementById("PFavoriteCity4Min");
+
+
+
+
+let LocaisCardsStorage = [
+    "InfoCardFixed1",
+    "InfoCardFixed2",
+    "InfoCardFixed3",
+    "InfoCardFixed4"
+]
+
+BtnDesafixedCard1.addEventListener('click', () => {
+    localStorage.removeItem('InfoCardFixed1')
+    updateScreenInfoFavoriteCity();
+
+})
+
+BtnDesafixedCard2.addEventListener('click', () => {
+    localStorage.removeItem('InfoCardFixed2')
+    updateScreenInfoFavoriteCity();
+
+})
+
+BtnDesafixedCard3.addEventListener('click', () => {
+    localStorage.removeItem('InfoCardFixed3')
+    updateScreenInfoFavoriteCity();
+
+})
+
+BtnDesafixedCard4.addEventListener('click', () => {
+    localStorage.removeItem('InfoCardFixed4')
+    updateScreenInfoFavoriteCity();
+
+})
+
+
