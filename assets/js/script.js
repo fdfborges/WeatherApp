@@ -41,6 +41,10 @@ let IconFavoriteCity2 = document.getElementById("IconFavoriteCity2");
 let iconFavoriteCity3 = document.getElementById("iconFavoriteCity3");
 let IconFavoriteCity4 = document.getElementById("IconFavoriteCity4");
 
+const MessageErroAuth1001 = document.getElementById("MessageErroAuth1001");
+const barDivision = document.getElementById("barDivision");
+const BtnCloseMessage = document.getElementById("BtnCloseMessage");
+
 const GeoLocationValueLocalStorage = localStorage.getItem("GeoLocalizacao");
 
 
@@ -521,6 +525,9 @@ BtnFixedCity.addEventListener('click', () => {
                 JSON.stringify({ nameCity, Temp, minTempFavorite, urlIcone })
             )
             break;
+        } else {
+            MessageErroAuth1001Animation();
+            console.log("Nâo temo card vazio")
         }
     }
 
@@ -597,4 +604,37 @@ BtnDesafixedCard4.addEventListener('click', () => {
 
 })
 
+let tempAnimation;
 
+function MessageErroAuth1001Animation() {
+    clearTimeout(tempAnimation);
+    MessageErroAuth1001.style.transition = "transform 0.3s ease"
+    barDivision.style.transition = "width 10s linear";
+
+    MessageErroAuth1001.style.transform = "translateY(10px)";
+    barDivision.style.width = '0%';
+    
+
+    tempAnimation = setTimeout(() => {
+        MessageErroAuth100AnimationClose();
+    }, 10000);
+}
+
+
+function MessageErroAuth100AnimationClose() {
+    clearTimeout(tempAnimation);
+    
+    tempAnimation = 10000;
+    
+        MessageErroAuth1001.style.transition = "transform 0.3s ease"
+        barDivision.style.transition = "width 0.3s ease";
+
+        MessageErroAuth1001.style.transform = "translateY(-120px)";
+        barDivision.style.width = '100%';
+}
+
+BtnCloseMessage.addEventListener("click", () => {
+    clearTimeout(tempAnimation)
+    MessageErroAuth100AnimationClose()
+    console.log("FUNCIONANDO")
+})

@@ -12,6 +12,111 @@ body {
     background-color: var(--color-background);
 }
 
+.MessageErroAuth1001 {
+    width: 500px;
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-background-objects);
+    position: absolute;
+    transform: translateY(-120px);
+    right: 0;
+    z-index: 3;
+    
+    
+}
+
+.upMessageContainer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.upMessageContainer svg {
+    
+    width: 20px;
+    fill: transparent;
+    stroke: var(--color-text);
+}
+
+.backgroundIconWarning{
+    width: 50px;
+    height: 45px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-error-family-400);
+    border-radius: 10px;
+}
+
+.upMEssageContainerTexts{
+    display: flex;
+    width: 100%;
+}
+
+.upMEssageContainerTexts .Texts{
+    width: 100%;
+    flex: 2;
+}
+
+.BtnCloseMessage{
+    
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex: 0.2;
+    
+    background-color: transparent;
+    border: none;
+
+}
+
+.BtnCloseMessage span{
+    font-size: 10px;
+    color: var(--color-purple-light);
+}
+
+
+.upMessageContainer svg path {
+    stroke: var(--color-text);
+}
+
+.upMessageContainer svg circle{
+    fill: var(--color-text);
+}
+
+
+.MessageErroAuth1001 span {
+    font-size: 14px;
+}
+
+.MessageErroAuth1001 p {
+    font-size: 12px;
+}
+
+.MessageErroAuth1001 .barDivision{
+    width: 100%;
+    height: 1px;
+    background-color: var(--color-error-family-400);
+    margin: 15px 0px;
+}
+
+.containerCodeError{
+    width: 100%;
+}
+
+.containerCodeError p{
+    color: var(--color-purple-light);
+    font-size: 10px;
+    opacity: 70%;
+}
+
+
 header {
     width: 100%;
     display: flex;
@@ -234,7 +339,7 @@ main {
     border-radius: 10px;
 }
 
-.IconFavoriteCityClass{
+.IconFavoriteCityClass {
     width: 100px;
     height: 100px;
 }
@@ -247,7 +352,7 @@ main {
     padding-left: 10px;
 }
 
-.FavoriteTempAndMinTemp{
+.FavoriteTempAndMinTemp {
     display: flex;
 }
 
@@ -260,7 +365,7 @@ main {
     font-weight: bold;
 }
 
-.CardFavoriteCityCenter strong{
+.CardFavoriteCityCenter strong {
     font-size: 20px;
     color: var(--color-purple-light);
 }
@@ -292,10 +397,10 @@ main {
     border: 1px solid var(--color-purple-light);
     border-radius: 100%;
     padding: 10px;
-    
+
 }
 
-.BtnDesafixedCard span{
+.BtnDesafixedCard span {
     font-weight: bold;
     font-size: 10px;
 }
@@ -356,11 +461,11 @@ main {
     stroke: var(--color-purple-light);
 }
 
-.cardCityAndFixed button svg path:hover{
+.cardCityAndFixed button svg path:hover {
     stroke: var(--color-primary);
 }
 
-.cardCityAndFixed button svg path:active{
+.cardCityAndFixed button svg path:active {
     stroke: var(--color-purple-light);
 }
 

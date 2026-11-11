@@ -23,5 +23,8 @@
     --colorblueLightTheme: #ebf1fe;
     --colorTextsLightTheme: #000;
     --colorBorderLightTheme: rgb(199, 199, 199);
+
+    /*Tratativa de Erros*/
+    --color-error-family-400: #EB6E4B;
 }
 

@@ -1,0 +1,6 @@
+{
+    "code": "VALIDATION-1001",
+    "internal_message": "Usuário tentou fixar mais cidades favoritas do que o permitido",
+    "user_message": "Limite de cidades fixadas excedido!",
+    "http_status": "422"
+}
